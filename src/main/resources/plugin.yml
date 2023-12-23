@@ -1,0 +1,4 @@
+name: EpicDuels
+version: '${project.version}'
+main: me.redyt008.epicduels.EpicDuels
+api-version: '1.20'
