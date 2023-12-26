@@ -2,3 +2,13 @@ name: EpicDuels
 version: '${project.version}'
 main: me.redyt008.epicduels.EpicDuels
 api-version: '1.20'
+commands:
+  duel:
+    description: Inizia un duello con un PLayer!
+    usage: /<command>
+  daccept:
+    description: Accetta una richiesta di duello
+    usage: /<command>
+  ddeny:
+    description: Rifiuta una richiesta di duello
+    usage: /<command>

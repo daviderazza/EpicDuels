@@ -1,5 +1,6 @@
 package me.redyt008.epicduels;
 
+import me.redyt008.epicduels.commands.TpaManager;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,7 +16,11 @@ public final class EpicDuels extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
-        System.out.println("CustomWeapons Online! Made by Davide Razza");
+        System.out.println("EpicDuels Online! Made by Davide Razza");
+        //REGISTRAZIONE COMANDI
+        this.getCommand("duel").setExecutor(new TpaManager());
+        this.getCommand("daccept").setExecutor(new TpaManager());
+        this.getCommand("ddeny").setExecutor(new TpaManager());
     }
 
     @Override
