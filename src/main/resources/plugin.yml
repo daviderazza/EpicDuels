@@ -12,3 +12,6 @@ commands:
   ddeny:
     description: Rifiuta una richiesta di duello
     usage: /<command>
+  edtest:
+    description: Comando di test
+    usage: /<command>

@@ -1,6 +1,9 @@
 package me.redyt008.epicduels;
 
-import me.redyt008.epicduels.commands.TpaManager;
+import me.redyt008.epicduels.commands.TestCommand;
+import me.redyt008.epicduels.commands.DuelManager;
+import me.redyt008.epicduels.events.duelVictoryEvent;
+import me.redyt008.epicduels.events.playerJoinEvent;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -8,6 +11,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class EpicDuels extends JavaPlugin {
 
     private static Economy econ = null;
+    public static Data data;
+
 
     @Override
     public void onEnable() {
@@ -17,10 +22,20 @@ public final class EpicDuels extends JavaPlugin {
             return;
         }
         System.out.println("EpicDuels Online! Made by Davide Razza");
+        getConfig().options().copyDefaults(true);
+        saveDefaultConfig();
+        data = new Data();
         //REGISTRAZIONE COMANDI
-        this.getCommand("duel").setExecutor(new TpaManager());
-        this.getCommand("daccept").setExecutor(new TpaManager());
-        this.getCommand("ddeny").setExecutor(new TpaManager());
+        this.getCommand("duel").setExecutor(new DuelManager());
+        this.getCommand("daccept").setExecutor(new DuelManager());
+        this.getCommand("ddeny").setExecutor(new DuelManager());
+        this.getCommand("edtest").setExecutor(new TestCommand());
+        //REGISTRAZIONE EVENTI
+        getServer().getPluginManager().registerEvents(new duelVictoryEvent(), this);
+        getServer().getPluginManager().registerEvents(new playerJoinEvent(), this);
+    }
+    public static Data getData() {
+        return data;
     }
 
     @Override
