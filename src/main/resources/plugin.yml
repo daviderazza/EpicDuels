@@ -15,3 +15,12 @@ commands:
   edtest:
     description: Comando di test
     usage: /<command>
+  edstats:
+    description: Comando per vedere le proprie statistiche
+    usage: /<command>
+  setrank:
+    description: Comando per settarsi il rank
+    usage: /<command>
+  ranks:
+    description: Guarda tutti i Rank esistenti
+    usage: /<command>

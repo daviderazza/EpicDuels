@@ -40,7 +40,7 @@ public class DuelManager implements CommandExecutor {
                 return true;
             }
             if (!(economy.has(player, 200))) {
-                player.sendMessage(ChatColor.RED + "You don't have enough money.");
+                player.sendMessage(ChatColor.RED + "Per iniziare un duello devi avere almeno 200 monete");
                 return true;
             }
             Player target = Bukkit.getPlayer(args[0]);
@@ -55,7 +55,7 @@ public class DuelManager implements CommandExecutor {
         }
         if (command.getName().equalsIgnoreCase("daccept")) {
             if (requests.containsKey(player.getUniqueId())) {
-                player.sendMessage(ChatColor.GREEN + "Hai accettato la richiesta di duello di " + Bukkit.getPlayer(requests.get(player.getUniqueId())));
+                player.sendMessage(ChatColor.GREEN + "Hai accettato la richiesta di duello di " + Bukkit.getPlayer(requests.get(player.getUniqueId())).getName());
                 Bukkit.getPlayer(requests.get(player.getUniqueId())).sendMessage(ChatColor.GREEN + player.getName() + " ha accettato la tua richiesta di duello");
                 Bukkit.getPlayer(requests.get(player.getUniqueId())).teleport(player);
                 EpicDuels.getData().setData(Bukkit.getPlayer(requests.get(player.getUniqueId())), true);
@@ -63,12 +63,12 @@ public class DuelManager implements CommandExecutor {
                 EpicDuels.getData().setData(player, true);
                 return true;
             }
-            player.sendMessage(ChatColor.DARK_RED + "cNon hai nessuna richiesta da accettare");
+            player.sendMessage(ChatColor.DARK_RED + "Non hai nessuna richiesta da accettare");
         }
 
         if (command.getName().equalsIgnoreCase("ddeny")) {
             if (requests.containsKey(player.getUniqueId())) {
-                player.sendMessage(ChatColor.RED + "Hai rifiutato la richiesta di duello di " + Bukkit.getPlayer(requests.get(player.getUniqueId())));
+                player.sendMessage(ChatColor.RED + "Hai rifiutato la richiesta di duello di " + Bukkit.getPlayer(requests.get(player.getUniqueId())).getName());
                 Bukkit.getPlayer(requests.get(player.getUniqueId())).sendMessage(ChatColor.RED + player.getName() + " ha rifiutato la tua richiesta di duello");
                 requests.remove(player.getUniqueId());
                 return true;

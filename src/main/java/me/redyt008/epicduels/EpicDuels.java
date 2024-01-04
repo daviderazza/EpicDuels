@@ -1,9 +1,10 @@
 package me.redyt008.epicduels;
 
-import me.redyt008.epicduels.commands.TestCommand;
-import me.redyt008.epicduels.commands.DuelManager;
+import me.redyt008.epicduels.commands.*;
 import me.redyt008.epicduels.events.duelVictoryEvent;
 import me.redyt008.epicduels.events.playerJoinEvent;
+import me.redyt008.epicduels.events.rankInventoryClickEvent;
+import me.redyt008.epicduels.listeners.rankManager;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,9 +31,14 @@ public final class EpicDuels extends JavaPlugin {
         this.getCommand("daccept").setExecutor(new DuelManager());
         this.getCommand("ddeny").setExecutor(new DuelManager());
         this.getCommand("edtest").setExecutor(new TestCommand());
+        this.getCommand("edstats").setExecutor(new edStats());
+        this.getCommand("setrank").setExecutor(new setRankCommand());
+        this.getCommand("ranks").setExecutor(new RanksCommand());
         //REGISTRAZIONE EVENTI
         getServer().getPluginManager().registerEvents(new duelVictoryEvent(), this);
         getServer().getPluginManager().registerEvents(new playerJoinEvent(), this);
+        getServer().getPluginManager().registerEvents(new rankManager(), this);
+        getServer().getPluginManager().registerEvents(new rankInventoryClickEvent(), this);
     }
     public static Data getData() {
         return data;
