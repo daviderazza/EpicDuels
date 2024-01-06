@@ -4,7 +4,7 @@ main: me.redyt008.epicduels.EpicDuels
 api-version: '1.20'
 commands:
   duel:
-    description: Inizia un duello con un PLayer!
+    description: Inizia un duello con un Player!
     usage: /<command>
   daccept:
     description: Accetta una richiesta di duello
@@ -23,4 +23,13 @@ commands:
     usage: /<command>
   ranks:
     description: Guarda tutti i Rank esistenti
+    usage: /<command>
+  prearena:
+    description: Imposta l'arena dove verranno tippati i player in duello
+    usage: /<command>
+  arena:
+    description: Imposta le prearene dove verranno tippati i player prima di entrare nell'arena
+    usage: /<command>
+  stands:
+    description: Imposta gli stand dove verranno tippati i player per spectare il duello
     usage: /<command>

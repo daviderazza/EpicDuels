@@ -34,6 +34,9 @@ public final class EpicDuels extends JavaPlugin {
         this.getCommand("edstats").setExecutor(new edStats());
         this.getCommand("setrank").setExecutor(new setRankCommand());
         this.getCommand("ranks").setExecutor(new RanksCommand());
+        this.getCommand("prearena").setExecutor(new preArenaCommand());
+        this.getCommand("arena").setExecutor(new ArenaCommand());
+        this.getCommand("stands").setExecutor(new StandsCommand());
         //REGISTRAZIONE EVENTI
         getServer().getPluginManager().registerEvents(new duelVictoryEvent(), this);
         getServer().getPluginManager().registerEvents(new playerJoinEvent(), this);

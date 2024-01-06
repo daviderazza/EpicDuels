@@ -1,1 +1,16 @@
 #Config file for EpicDuels by Davide Razza
+
+#Here there's the section about the pre-arena
+#ALL THE PLAYERS WILL BE TPED TO THE PRE-ARENA BEFORE GOING INTO THE REAL ARENA
+#You can insert the LOCATION for both of the pre-arenas here or in-game by typing /prearena <1/2>
+pre arena:
+
+#Here there's the section about the arena
+#ALL THE PLAYERS WILL BE TPED TO THE ARENA AFTER STAYING IN THE PRE-ARENA FOR 3 SECONDS
+#You can insert the LOCATION for the arena here or in-game by typing /arena
+arena:
+
+#Here there's the section about the stands
+#ALL THE PLAYER THAT WILL TYPE THE COMMAND /SPECTATE IN GAME WILL BE TIPPED AT THE STANDS
+#You can insert the LOCATION for the stands here or in-game by typing /stands
+stands:
