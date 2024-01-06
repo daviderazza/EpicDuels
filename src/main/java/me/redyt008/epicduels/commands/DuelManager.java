@@ -46,11 +46,15 @@ public class DuelManager implements CommandExecutor {
             }
             Player target = Bukkit.getPlayer(args[0]);
             if (target != null) {
-                requests.put(target.getUniqueId(), player.getUniqueId());
-                player.sendMessage(ChatColor.GOLD + "Hai mandato una richiesta di duello a " + target.getName() + ".");
-                target.sendMessage(ChatColor.GOLD + player.getName() + " ti ha mandato una richiesta di duello");
-                target.sendMessage(ChatColor.GOLD + "Scrivi /daccept o /ddeny");
-                return true;
+                if(!target.getName().equals(player.getName())){
+                    requests.put(target.getUniqueId(), player.getUniqueId());
+                    player.sendMessage(ChatColor.GOLD + "Hai mandato una richiesta di duello a " + target.getName() + ".");
+                    target.sendMessage(ChatColor.GOLD + player.getName() + " ti ha mandato una richiesta di duello");
+                    target.sendMessage(ChatColor.GOLD + "Scrivi /daccept o /ddeny");
+                    return true;
+                }else {
+                    player.sendMessage(ChatColor.RED + "Non puoi mandare una richiesta di duello a te stesso!");
+                }
             }
             player.sendMessage(ChatColor.RED + "Il player è offline");
         }
