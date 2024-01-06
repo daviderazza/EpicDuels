@@ -4,6 +4,7 @@ import me.redyt008.epicduels.commands.*;
 import me.redyt008.epicduels.events.duelVictoryEvent;
 import me.redyt008.epicduels.events.playerJoinEvent;
 import me.redyt008.epicduels.events.rankInventoryClickEvent;
+import me.redyt008.epicduels.listeners.preArenaListener;
 import me.redyt008.epicduels.listeners.rankManager;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -42,6 +43,7 @@ public final class EpicDuels extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new playerJoinEvent(), this);
         getServer().getPluginManager().registerEvents(new rankManager(), this);
         getServer().getPluginManager().registerEvents(new rankInventoryClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new preArenaListener(), this);
     }
     public static Data getData() {
         return data;

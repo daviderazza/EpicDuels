@@ -1,6 +1,7 @@
 package me.redyt008.epicduels.commands;
 
 import me.redyt008.epicduels.EpicDuels;
+import me.redyt008.epicduels.events.preArenaEvent;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -59,8 +60,10 @@ public class DuelManager implements CommandExecutor {
                 Bukkit.getPlayer(requests.get(player.getUniqueId())).sendMessage(ChatColor.GREEN + player.getName() + " ha accettato la tua richiesta di duello");
                 Bukkit.getPlayer(requests.get(player.getUniqueId())).teleport(player);
                 EpicDuels.getData().setData(Bukkit.getPlayer(requests.get(player.getUniqueId())), true);
+                Bukkit.getPluginManager().callEvent(new preArenaEvent(Bukkit.getPlayer(requests.get(player.getUniqueId()))));
                 requests.remove(player.getUniqueId());
                 EpicDuels.getData().setData(player, true);
+                Bukkit.getPluginManager().callEvent(new preArenaEvent(player));
                 return true;
             }
             player.sendMessage(ChatColor.DARK_RED + "Non hai nessuna richiesta da accettare");
