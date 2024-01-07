@@ -4,6 +4,7 @@ import me.redyt008.epicduels.EpicDuels;
 import me.redyt008.epicduels.events.rankEvent;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +12,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class rankManager implements Listener {
@@ -29,7 +31,7 @@ public class rankManager implements Listener {
     public String terra = "Rank Terra";
 
     @EventHandler
-    public void onPlayerChangeRank(rankEvent event) {
+    public void onPlayerChangeRank(rankEvent event) throws IOException, InvalidConfigurationException {
         Player player = event.getPlayer();
         Economy economy = EpicDuels.getEconomy();
         if (EpicDuels.getData().getRank(player) != null) {
@@ -41,6 +43,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + ferro + " devi avere il livello 15");
                         economy.depositPlayer(player, 1000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ferro)) {
@@ -50,6 +53,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + oro + " devi avere il livello 25");
                         economy.depositPlayer(player, 5000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(oro)) {
@@ -59,6 +63,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + ametista + " devi avere il livello 40");
                         economy.depositPlayer(player, 10000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ametista)) {
@@ -68,6 +73,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + diamante + " devi avere il livello 60");
                         economy.depositPlayer(player, 15000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(diamante)) {
@@ -77,6 +83,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + beacon + " devi avere il livello 85");
                         economy.depositPlayer(player, 20000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(beacon)) {
@@ -86,6 +93,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + ossidiana + " devi avere il livello 115");
                         economy.depositPlayer(player, 25000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ossidiana)) {
@@ -95,6 +103,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + ossidiana2 + " devi avere il livello 150");
                         economy.depositPlayer(player, 35000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ossidiana2)) {
@@ -104,6 +113,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + netherite + " devi avere il livello 175");
                         economy.depositPlayer(player, 50000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(netherite)) {
@@ -113,6 +123,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + bedrock + " devi avere il livello 200");
                         economy.depositPlayer(player, 75000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(bedrock)) {
@@ -122,6 +133,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + terra + " devi avere il livello 250");
                         economy.depositPlayer(player, 150000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(terra)) {
@@ -131,6 +143,7 @@ public class rankManager implements Listener {
                         player.sendMessage(ChatColor.GOLD + "Hai completato tutti i rank!");
                         economy.depositPlayer(player, 30000);
                         EpicDuels.getData().setMessage(player, false);
+                        EpicDuels.getData().reloadData();
                     }
                 }
             }
