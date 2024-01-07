@@ -35,6 +35,7 @@ public class rankManager implements Listener {
         if (EpicDuels.getData().getRank(player) != null) {
             if (!Objects.equals(EpicDuels.getData().getRank(player), zero)) {
                 if (EpicDuels.getData().getRank(player).equalsIgnoreCase(bronzo)) {
+                    EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Bronzo. Ecco a te 1000 Monete");
                         player.sendMessage(ChatColor.GOLD + "Per raggiungere il " + ferro + " devi avere il livello 15");

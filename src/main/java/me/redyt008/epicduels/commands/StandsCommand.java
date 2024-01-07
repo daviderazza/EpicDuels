@@ -22,7 +22,9 @@ public class StandsCommand implements CommandExecutor {
                 Location location = player.getLocation();
                 String string = location.getBlockX() + " " + location.getBlockY() + " " + location.getBlockZ();
                 player.sendMessage(ChatColor.GREEN + "Hai impostato gli stand a " + string + " con successo!");
-                plugin.getConfig().set("stands", string);
+                plugin.getConfig().set("stands.X", location.getBlockX());
+                plugin.getConfig().set("stands.Y", location.getBlockY());
+                plugin.getConfig().set("stands.Z", location.getBlockZ());
                 plugin.saveConfig();
             }
         }

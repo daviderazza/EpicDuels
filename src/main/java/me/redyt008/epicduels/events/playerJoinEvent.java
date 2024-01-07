@@ -17,7 +17,7 @@ public class playerJoinEvent implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) throws IOException, InvalidConfigurationException {
         Player player = event.getPlayer();
         EpicDuels.getData().setData(player, false);
-        EpicDuels.getData().setMessage(player, true);
+        EpicDuels.getData().setMessage(player, false);
         if(EpicDuels.getData().getRank(player) == null){
             EpicDuels.getData().setRank(player, rankManager.zero);
             EpicDuels.getData().reloadData();

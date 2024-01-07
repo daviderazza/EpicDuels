@@ -21,13 +21,17 @@ public class preArenaCommand implements CommandExecutor {
             if(player.hasPermission("epicduels.prearena")){
                 Location location = player.getLocation();
                 String string = location.getBlockX() + " " + location.getBlockY() + " " + location.getBlockZ();
-                if(plugin.getConfig().get("pre arena.arena1") == null){
-                    plugin.getConfig().set("pre arena.arena1", string);
-                    player.sendMessage(ChatColor.GREEN + "Hai impostato la prima prearena a " + plugin.getConfig().get("pre arena.arena1") + " con successo!");
+                if(plugin.getConfig().get("pre arena.arena1.X") == null){
+                    plugin.getConfig().set("pre arena.arena1.X", location.getBlockX());
+                    plugin.getConfig().set("pre arena.arena1.Y", location.getBlockY());
+                    plugin.getConfig().set("pre arena.arena1.Z", location.getBlockZ());
+                    player.sendMessage(ChatColor.GREEN + "Hai impostato la prima prearena a " + string + " con successo!");
                     plugin.saveConfig();
                 }else {
-                    plugin.getConfig().set("pre arena.arena2", string);
-                    player.sendMessage(ChatColor.GREEN + "Hai impostato le prearene a " + plugin.getConfig().get("pre arena.arena1") + " e a " + plugin.getConfig().get("pre arena.arena2") + " con successo!");
+                    plugin.getConfig().set("pre arena.arena2.X", location.getBlockX());
+                    plugin.getConfig().set("pre arena.arena2.Y", location.getBlockY());
+                    plugin.getConfig().set("pre arena.arena2.Z", location.getBlockZ());
+                    player.sendMessage(ChatColor.GREEN + "Hai impostato le prearene a " + plugin.getConfig().get("pre arena.arena1.X") + plugin.getConfig().get("pre arena.arena1.Y") + plugin.getConfig().get("pre arena.arena1.Z") + " e a " + plugin.getConfig().get("pre arena.arena2.X") + plugin.getConfig().get("pre arena.arena2.Y") + plugin.getConfig().get("pre arena.arena2.Z") + " con successo!");
                     plugin.saveConfig();
                 }
             }

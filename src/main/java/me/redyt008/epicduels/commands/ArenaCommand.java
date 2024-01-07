@@ -22,7 +22,9 @@ public class ArenaCommand implements CommandExecutor {
                 Location location = player.getLocation();
                 String string = location.getBlockX() + " " + location.getBlockY() + " " + location.getBlockZ();
                 player.sendMessage(ChatColor.GREEN + "Hai impostato l'arena a " + string + " con successo!");
-                plugin.getConfig().set("arena", string);
+                plugin.getConfig().set("arena.X", location.getBlockX());
+                plugin.getConfig().set("arena.Y", location.getBlockY());
+                plugin.getConfig().set("arena.Z", location.getBlockZ());
                 plugin.saveConfig();
             }
         }
