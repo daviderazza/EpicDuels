@@ -29,7 +29,7 @@ public class RanksCommand implements CommandExecutor {
         if(commandSender instanceof Player){
             Player player = (Player) commandSender;
             if(!player.hasPermission("epicduels.ranks")){
-                player.sendMessage(ChatColor.RED + "Non hai il permesso di eseguire uesto comando!");
+                player.sendMessage(ChatColor.RED + "Non hai il permesso di eseguire questo comando");
             }
             Inventory inventory = Bukkit.createInventory(null, 27, ChatColor.GOLD + "Ranks");
 
