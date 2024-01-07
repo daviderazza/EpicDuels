@@ -2,6 +2,7 @@ package me.redyt008.epicduels.commands;
 
 import me.redyt008.epicduels.EpicDuels;
 import me.redyt008.epicduels.listeners.rankManager;
+import net.md_5.bungee.api.ChatMessageType;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -27,6 +28,9 @@ public class RanksCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if(commandSender instanceof Player){
             Player player = (Player) commandSender;
+            if(!player.hasPermission("epicduels.ranks")){
+                player.sendMessage(ChatColor.RED + "Non hai il permesso di eseguire uesto comando!");
+            }
             Inventory inventory = Bukkit.createInventory(null, 27, ChatColor.GOLD + "Ranks");
 
             ItemStack itemStack = new ItemStack(Material.COPPER_BLOCK);
