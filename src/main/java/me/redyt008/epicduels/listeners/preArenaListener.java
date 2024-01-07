@@ -18,7 +18,6 @@ public class preArenaListener implements Listener {
     public void onPlayerInPreArena(preArenaEvent event){
         Player player = event.getPlayer();
         player.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
-
         Location arena = new Location(player.getWorld(), plugin.getConfig().getInt("arena.X"), plugin.getConfig().getInt("arena.Y"),plugin.getConfig().getInt("arena.Z"));
         player.teleport(arena);
     }

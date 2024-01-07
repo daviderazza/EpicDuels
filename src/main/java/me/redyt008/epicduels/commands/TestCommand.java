@@ -11,7 +11,7 @@ import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
 public class TestCommand implements CommandExecutor {
-    static final Plugin plugin = EpicDuels.getPlugin(EpicDuels.class);
+    private Plugin plugin = EpicDuels.getPlugin(EpicDuels.class);
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {

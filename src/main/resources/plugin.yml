@@ -33,3 +33,6 @@ commands:
   stands:
     description: Imposta gli stand dove verranno tippati i player per spectare il duello
     usage: /<command>
+  spect:
+    description: Osserva un duello
+    usage: /<command>
