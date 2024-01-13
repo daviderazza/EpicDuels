@@ -2,7 +2,6 @@ package me.redyt008.epicduels.commands;
 
 import me.redyt008.epicduels.EpicDuels;
 import me.redyt008.epicduels.listeners.rankManager;
-import net.md_5.bungee.api.ChatMessageType;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

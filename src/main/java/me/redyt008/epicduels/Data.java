@@ -83,4 +83,11 @@ public class Data {
     public Boolean getMessage(Player player){
         return this.data.getBoolean("Data." + player + ".showMessage");
     }
+
+    public void setEnemy(Player player, Player enemy){
+        this.data.set("Data." + player + ".enemy", enemy);
+    }
+    public Player getEnemy(Player player){
+        return (Player) this.data.getOfflinePlayer("Data." + player + ".enemy");
+    }
 }

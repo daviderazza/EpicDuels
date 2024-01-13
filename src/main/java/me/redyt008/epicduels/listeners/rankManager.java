@@ -36,7 +36,7 @@ public class rankManager implements Listener {
         Economy economy = EpicDuels.getEconomy();
         if (EpicDuels.getData().getRank(player) != null) {
             if (!Objects.equals(EpicDuels.getData().getRank(player), zero)) {
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(bronzo)) {
+                if (EpicDuels.getData().getLevel(player) == 5) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Bronzo. Ecco a te 1000 Monete");
@@ -46,7 +46,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ferro)) {
+                if (EpicDuels.getData().getLevel(player) == 15) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Ferro. Ecco a te 5000 Monete");
@@ -56,7 +56,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(oro)) {
+                if (EpicDuels.getData().getLevel(player) == 25) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Oro. Ecco a te 10000 Monete");
@@ -66,7 +66,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ametista)) {
+                if (EpicDuels.getData().getLevel(player) == 40) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Ametista. Ecco a te 15000 Monete");
@@ -76,7 +76,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(diamante)) {
+                if (EpicDuels.getData().getLevel(player) == 60) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Diamante. Ecco a te 20000 Monete");
@@ -86,7 +86,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(beacon)) {
+                if (EpicDuels.getData().getLevel(player) == 85) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Beacon. Ecco a te 25000 Monete");
@@ -96,7 +96,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ossidiana)) {
+                if (EpicDuels.getData().getLevel(player) == 115) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Ossidiana. Ecco a te 35000 Monete");
@@ -106,7 +106,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(ossidiana2)) {
+                if (EpicDuels.getData().getLevel(player) == 150) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Ossidiana Piangente. Ecco a te 50000 Monete");
@@ -116,7 +116,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(netherite)) {
+                if (EpicDuels.getData().getLevel(player) == 175) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Netherite. Ecco a te 75000 Monete");
@@ -126,7 +126,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(bedrock)) {
+                if (EpicDuels.getData().getLevel(player) == 200) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Bedrock. Ecco a te 150000 Monete");
@@ -136,7 +136,7 @@ public class rankManager implements Listener {
                         EpicDuels.getData().reloadData();
                     }
                 }
-                if (EpicDuels.getData().getRank(player).equalsIgnoreCase(terra)) {
+                if (EpicDuels.getData().getLevel(player) == 250) {
                     EpicDuels.getData().setMessage(player, true);
                     if (EpicDuels.getData().getMessage(player)) {
                         player.sendMessage(ChatColor.GOLD + "Complimenti! Hai raggiunto il Rank Terra. Ecco a te 300000 Monete");

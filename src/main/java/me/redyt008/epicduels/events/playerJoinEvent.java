@@ -18,6 +18,7 @@ public class playerJoinEvent implements Listener {
         Player player = event.getPlayer();
         EpicDuels.getData().setData(player, false);
         EpicDuels.getData().setMessage(player, false);
+        EpicDuels.getData().setEnemy(player, null);
         if(EpicDuels.getData().getRank(player) == null){
             EpicDuels.getData().setRank(player, rankManager.zero);
             EpicDuels.getData().reloadData();

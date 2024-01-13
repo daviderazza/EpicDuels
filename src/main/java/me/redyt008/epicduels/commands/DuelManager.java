@@ -8,10 +8,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -47,16 +49,20 @@ public class DuelManager implements CommandExecutor {
             Player target = Bukkit.getPlayer(args[0]);
             if (target != null) {
                 if(!target.getName().equals(player.getName())){
-                    requests.put(target.getUniqueId(), player.getUniqueId());
-                    player.sendMessage(ChatColor.GOLD + "Hai mandato una richiesta di duello a " + target.getName() + ".");
-                    target.sendMessage(ChatColor.GOLD + player.getName() + " ti ha mandato una richiesta di duello");
-                    target.sendMessage(ChatColor.GOLD + "Scrivi /daccept o /ddeny");
-                    return true;
+                    if(requests.containsKey(player.getUniqueId())){
+                        player.sendMessage(ChatColor.DARK_RED + "Hai gia nessuna richiesta di duello");
+                    }else {
+                        requests.put(target.getUniqueId(), player.getUniqueId());
+                        player.sendMessage(ChatColor.GOLD + "Hai mandato una richiesta di duello a " + target.getName() + ".");
+                        target.sendMessage(ChatColor.GOLD + player.getName() + " ti ha mandato una richiesta di duello");
+                        target.sendMessage(ChatColor.GOLD + "Scrivi /daccept o /ddeny");
+                    }
                 }else {
                     player.sendMessage(ChatColor.RED + "Non puoi mandare una richiesta di duello a te stesso!");
                 }
+            }else {
+                player.sendMessage(ChatColor.RED + "Il player è offline");
             }
-            player.sendMessage(ChatColor.RED + "Il player è offline");
         }
         if (command.getName().equalsIgnoreCase("daccept")) {
             if (requests.containsKey(player.getUniqueId())) {
@@ -65,6 +71,15 @@ public class DuelManager implements CommandExecutor {
                 Bukkit.getPlayer(requests.get(player.getUniqueId())).teleport(player);
                 EpicDuels.getData().setData(Bukkit.getPlayer(requests.get(player.getUniqueId())), true);
                 Bukkit.getPluginManager().callEvent(new preArenaEvent(Bukkit.getPlayer(requests.get(player.getUniqueId()))));
+                EpicDuels.getData().setEnemy(Bukkit.getPlayer(requests.get(player.getUniqueId())), player);
+                EpicDuels.getData().setEnemy(player, Bukkit.getPlayer(requests.get(player.getUniqueId())));
+                try {
+                    EpicDuels.getData().reloadData();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InvalidConfigurationException e) {
+                    throw new RuntimeException(e);
+                }
                 requests.remove(player.getUniqueId());
                 EpicDuels.getData().setData(player, true);
                 Bukkit.getPluginManager().callEvent(new preArenaEvent(player));
