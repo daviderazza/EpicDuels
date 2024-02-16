@@ -33,7 +33,7 @@ public class duelVictoryEvent implements Listener {
                 economy.depositPlayer(killer, balance);
                 economy.depositPlayer(killer, 5000);
                 economy.withdrawPlayer(player, balance);
-                killer.sendMessage(ChatColor.GREEN + "Hai guadagnato " + economy.format(balance) + " e un bonus di 5000 monete battendo in un duello " + player.getName());
+                killer.sendMessage(ChatColor.GREEN + "Hai guadagnato " + economy.format(balance) + " e un bonus di $5000 battendo in un duello " + player.getName());
                 player.sendMessage(ChatColor.RED + "Hai perso " + economy.format(balance) + " perdendo in un duello contro " + killer.getName());
                 EpicDuels.getData().setData(player, false);
                 EpicDuels.getData().setData(killer, false);

@@ -14,6 +14,7 @@ public final class EpicDuels extends JavaPlugin {
 
     private static Economy econ = null;
     public static Data data;
+    public static Arenas arenas;
 
 
     @Override
@@ -27,6 +28,7 @@ public final class EpicDuels extends JavaPlugin {
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
         data = new Data();
+        arenas = new Arenas();
         //REGISTRAZIONE COMANDI
         this.getCommand("duel").setExecutor(new DuelManager());
         this.getCommand("daccept").setExecutor(new DuelManager());
@@ -48,6 +50,9 @@ public final class EpicDuels extends JavaPlugin {
     }
     public static Data getData() {
         return data;
+    }
+    public static Arenas getArenas(){
+        return arenas;
     }
 
     @Override
