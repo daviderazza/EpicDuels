@@ -3,7 +3,6 @@ package me.redyt008.epicduels;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class Arenas {
         this.arenas.set("World." + "Arena" + num + "." + "X", X);
         this.arenas.set("World." + "Arena" + num + "." + "Y", Y);
         this.arenas.set("World." + "Arena" + num + "." + "Z", Z);
-        this.arenas.set("World." + "Arena" + num + "." + "isOccupied", false);
+        this.arenas.set("World." + "Arena" + num + "." + "isEnabled", true);
 
         int counter = this.getList() + 1;
         arenas.set("arenasCounter", counter);
@@ -79,5 +78,14 @@ public class Arenas {
 
     public int getCounter(){
         return this.arenas.getInt("arenasCounter");
+    }
+    public boolean getState(int num){
+        if(this.arenas.get("World." + "Arena" + num + "." + "isOccupied") != null){
+            return (boolean) this.arenas.get("World." + "Arena" + num + "." + "isOccupied");
+        }
+        return true;
+    }
+    public void setState(int num, boolean value){
+        this.arenas.set("World." + "Arena" + num + "." + "isEnabled", value);
     }
 }

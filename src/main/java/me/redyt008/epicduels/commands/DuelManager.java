@@ -68,8 +68,6 @@ public class DuelManager implements CommandExecutor {
             if (requests.containsKey(player.getUniqueId())) {
                 player.sendMessage(ChatColor.GREEN + "Hai accettato la richiesta di duello di " + Bukkit.getPlayer(requests.get(player.getUniqueId())).getName());
                 Bukkit.getPlayer(requests.get(player.getUniqueId())).sendMessage(ChatColor.GREEN + player.getName() + " ha accettato la tua richiesta di duello");
-                Bukkit.getPlayer(requests.get(player.getUniqueId())).teleport(player);
-                EpicDuels.getData().setData(Bukkit.getPlayer(requests.get(player.getUniqueId())), true);
                 Bukkit.getPluginManager().callEvent(new preArenaEvent(Bukkit.getPlayer(requests.get(player.getUniqueId()))));
                 EpicDuels.getData().setEnemy(Bukkit.getPlayer(requests.get(player.getUniqueId())), player);
                 EpicDuels.getData().setEnemy(player, Bukkit.getPlayer(requests.get(player.getUniqueId())));
@@ -81,7 +79,6 @@ public class DuelManager implements CommandExecutor {
                     throw new RuntimeException(e);
                 }
                 requests.remove(player.getUniqueId());
-                EpicDuels.getData().setData(player, true);
                 Bukkit.getPluginManager().callEvent(new preArenaEvent(player));
                 return true;
             }

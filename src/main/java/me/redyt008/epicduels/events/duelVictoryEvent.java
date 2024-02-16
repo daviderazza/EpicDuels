@@ -45,6 +45,9 @@ public class duelVictoryEvent implements Listener {
                 EpicDuels.getData().setDuelsPlayed(player);
                 EpicDuels.getData().setLevel(player);
                 EpicDuels.getData().setLevel(killer);
+                EpicDuels.getArenas().setState(EpicDuels.getData().getArena(player), true);
+                EpicDuels.getData().setArena(player, 0);
+                EpicDuels.getData().setArena(killer, 0);
 
                 if(EpicDuels.getData().getLevel(player) < 5){
                     EpicDuels.getData().setRank(player, rankManager.zero);

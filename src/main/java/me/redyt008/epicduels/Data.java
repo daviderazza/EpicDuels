@@ -90,4 +90,10 @@ public class Data {
     public Player getEnemy(Player player){
         return (Player) this.data.getOfflinePlayer("Data." + player + ".enemy");
     }
+    public void setArena(Player player, int arena){
+        this.data.set("Data." + player + ".arena", arena);
+    }
+    public int getArena(Player player){
+        return this.data.getInt("Data." + player + ".arena");
+    }
 }

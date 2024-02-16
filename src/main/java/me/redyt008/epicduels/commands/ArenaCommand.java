@@ -22,18 +22,22 @@ public class ArenaCommand implements CommandExecutor {
                 if(args.length != 1){
                     player.sendMessage(ChatColor.RED + "Utilizzo: /arena <numero_arena>");
                 }else if(args.length == 1){
-                    Location location = player.getLocation();
-                    EpicDuels.getArenas().setArena(Integer.parseInt(args[0]), location.getBlockX(), location.getBlockY(), location.getBlockZ());
-                    String string = EpicDuels.getArenas().getArenaX(Integer.parseInt(args[0])) + " " + EpicDuels.getArenas().getArenaY(Integer.parseInt(args[0])) + " " + EpicDuels.getArenas().getArenaZ(Integer.parseInt(args[0]));
-                    try {
-                        EpicDuels.getArenas().reloadArenas();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    } catch (InvalidConfigurationException e) {
-                        throw new RuntimeException(e);
+                    if(Integer.parseInt(args[0]) > 0){
+                        Location location = player.getLocation();
+                        EpicDuels.getArenas().setArena(Integer.parseInt(args[0]), location.getBlockX(), location.getBlockY(), location.getBlockZ());
+                        String string = EpicDuels.getArenas().getArenaX(Integer.parseInt(args[0])) + " " + EpicDuels.getArenas().getArenaY(Integer.parseInt(args[0])) + " " + EpicDuels.getArenas().getArenaZ(Integer.parseInt(args[0]));
+                        try {
+                            EpicDuels.getArenas().reloadArenas();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        } catch (InvalidConfigurationException e) {
+                            throw new RuntimeException(e);
+                        }
+                        player.sendMessage(ChatColor.GREEN + "Hai impostato con successo l'arena numero " + args[0] + " a " + string);
+                        player.sendMessage(ChatColor.GREEN + "Al momento sono presenti " + EpicDuels.getArenas().getList() + " arene");
+                    }else{
+                        player.sendMessage(ChatColor.RED + "Il numero dell'arena non può essere uguale o minore di 0!");
                     }
-                    player.sendMessage(ChatColor.GREEN + "Hai impostato con successo l'arena numero " + args[0] + " a " + string);
-                    player.sendMessage(ChatColor.GREEN + "Al momento sono presenti " + EpicDuels.getArenas().getList() + " arene");
                 }
             }
         }
