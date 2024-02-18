@@ -2,6 +2,7 @@ name: EpicDuels
 version: '${project.version}'
 main: me.redyt008.epicduels.EpicDuels
 api-version: '1.20'
+author: Davide Razza
 commands:
   duel:
     description: Inizia un duello con un Player!
@@ -35,4 +36,7 @@ commands:
     usage: /<command>
   spect:
     description: Osserva un duello
+    usage: /<command>
+  epicduels:
+    description: Comandi basici da amministratore
     usage: /<command>
