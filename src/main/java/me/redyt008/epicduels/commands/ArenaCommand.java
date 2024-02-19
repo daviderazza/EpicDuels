@@ -8,7 +8,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class ArenaCommand implements CommandExecutor {
                             throw new RuntimeException(e);
                         }
                         player.sendMessage(ChatColor.GREEN + "Hai impostato con successo l'arena numero " + args[0] + " a " + string);
-                        player.sendMessage(ChatColor.GREEN + "Al momento sono presenti " + EpicDuels.getArenas().getList() + " arene");
+                        player.sendMessage(ChatColor.GREEN + "Al momento sono presenti " + EpicDuels.getArenas().getCounter() + " arene");
                     }else{
                         player.sendMessage(ChatColor.RED + "Il numero dell'arena non può essere uguale o minore di 0!");
                     }

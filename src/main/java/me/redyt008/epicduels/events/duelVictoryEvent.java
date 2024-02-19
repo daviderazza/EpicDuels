@@ -137,7 +137,7 @@ public class duelVictoryEvent implements Listener {
             if(EpicDuels.getData().getData(player)){
                 Player enemy = EpicDuels.getData().getEnemy(player);
                 event.setDeathMessage(ChatColor.GOLD + player.getName() + " è stato battuto in un duello da " + enemy.getName());
-                economy.depositPlayer(killer, 10000);
+                economy.depositPlayer(enemy, 10000);
                 economy.withdrawPlayer(player, 10000);
                 enemy.sendMessage(ChatColor.GREEN + "Hai guadagnato " + economy.format(10000) + " battendo in un duello " + player.getName());
                 player.sendMessage(ChatColor.RED + "Hai perso " + economy.format(10000) + " perdendo in un duello contro " + enemy.getName());
@@ -151,6 +151,9 @@ public class duelVictoryEvent implements Listener {
                 EpicDuels.getData().setDuelsPlayed(player);
                 EpicDuels.getData().setLevel(player);
                 EpicDuels.getData().setLevel(enemy);
+                EpicDuels.getArenas().setState(EpicDuels.getData().getArena(player), true);
+                EpicDuels.getData().setArena(player, 0);
+                EpicDuels.getData().setArena(enemy, 0);
 
                 if(EpicDuels.getData().getLevel(player) < 5){
                     EpicDuels.getData().setRank(player, rankManager.zero);

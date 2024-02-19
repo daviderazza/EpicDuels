@@ -21,6 +21,7 @@ public class preArenaListener implements Listener {
     @EventHandler
     public void onPlayerInPreArena(preArenaEvent event){
         Player player = event.getPlayer();
+        Player player1 = event.getPlayer1();
         player.sendMessage(ChatColor.GOLD + "Ricerca partita in corso...");
         new BukkitRunnable(){
             final int counter = EpicDuels.getArenas().getCounter();
@@ -30,12 +31,17 @@ public class preArenaListener implements Listener {
                 if(counter != 0){
                     if(a <= counter){
                         if(EpicDuels.getArenas().getState(a)){
-                            player.sendMessage(ChatColor.GREEN + "L'arena numero" + a + "è libera. Procedo a tipparti a quell'arena");
+                            player.sendMessage(ChatColor.GREEN + "L'arena numero " + a + " è libera. Procedo a tipparti a quell'arena");
                             player.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
+                            player1.sendMessage(ChatColor.GREEN + "L'arena numero " + a + " è libera. Procedo a tipparti a quell'arena");
+                            player1.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
                             Location location = new Location(player.getWorld(), EpicDuels.getArenas().getArenaX(a), EpicDuels.getArenas().getArenaY(a), EpicDuels.getArenas().getArenaZ(a));
                             player.teleport(location);
+                            player1.teleport(location);
                             EpicDuels.getData().setData(player, true);
                             EpicDuels.getData().setArena(player, a);
+                            EpicDuels.getData().setData(player1, true);
+                            EpicDuels.getData().setArena(player1, a);
                             try {
                                 EpicDuels.getData().reloadData();
                             } catch (IOException e) {
@@ -54,19 +60,23 @@ public class preArenaListener implements Listener {
                             cancel();
                         }else{
                             if(!EpicDuels.getData().getData(player)){
-                                player.sendMessage(ChatColor.RED + "L'arena numero" + a + "è occupata");
+                                player.sendMessage(ChatColor.RED + "L'arena numero " + a + " è occupata");
                                 player.sendMessage(ChatColor.GOLD + "Procedo ad analizzare la prossima arena");
+                                player1.sendMessage(ChatColor.RED + "L'arena numero " + a + " è occupata");
+                                player1.sendMessage(ChatColor.GOLD + "Procedo ad analizzare la prossima arena");
                             }
                         }
                         a++;
                     }else {
                         if(!EpicDuels.getData().getData(player)){
                             player.sendMessage(ChatColor.RED + "Tutte le arene disponibili sono occupate! Riprova più tardi");
+                            player1.sendMessage(ChatColor.RED + "Tutte le arene disponibili sono occupate! Riprova più tardi");
                             cancel();
                         }
                     }
                 }else{
                     player.sendMessage(ChatColor.RED + "Impossibile avviare il duello: non ho trovato nessuna arena");
+                    player1.sendMessage(ChatColor.RED + "Impossibile avviare il duello: non ho trovato nessuna arena");
                     cancel();
                 }
             }

@@ -3,6 +3,7 @@ package me.redyt008.epicduels;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,25 +29,53 @@ public class Arenas {
         this.arenas = YamlConfiguration.loadConfiguration(file);
     }
     final List<String> arenasList = new ArrayList<>();
+    int counter;
     public void setArena(int num, int X, int Y, int Z){
+
+        if(this.arenas.get("World." + "Arena" + num + "." + "X") == null){
+            this.counter = this.getCounter();
+            counter++;
+            arenas.set("arenasCounter", counter);
+            this.counter = this.getCounter();
+
+        }
         this.arenas.set("World." + "Arena" + num + "." + "X", X);
         this.arenas.set("World." + "Arena" + num + "." + "Y", Y);
         this.arenas.set("World." + "Arena" + num + "." + "Z", Z);
         this.arenas.set("World." + "Arena" + num + "." + "isEnabled", true);
 
+        /*
         int counter = this.getList() + 1;
         arenas.set("arenasCounter", counter);
+         */
 
         if(arenas.getList("arenasList") == null){
             if(!arenasList.contains("Arena" + num)){
+                /*
                 this.arenas.set("arenasList", arenasList);
                 arenasList.add("Arena" + num);
                 this.arenas.set("arenasList", arenasList);
+
+                this.arenas.set("arenasList", arenasList);
+                for(int i = 1; i <= counter; i++){
+                    arenasList.clear();
+                    arenasList.add("Arena" + i);
+                    this.arenas.set("arenasList", arenasList);
+                }
+                */
             }
         }else{
             if(!arenasList.contains("Arena" + num)){
+                /*
                 arenasList.add("Arena" + num);
                 this.arenas.set("arenasList", arenasList);
+
+                for(int i = 1; i <= counter; i++){
+                    arenasList.clear();
+                    arenasList.add("Arena" + i);
+                    this.arenas.set("arenasList", arenasList);
+                }
+                */
             }
         }
     }
@@ -72,16 +101,17 @@ public class Arenas {
         this.arenas.save(file);
         this.arenas.load(file);
     }
+    /*
     public int getList(){
         return arenasList.size();
     }
-
+    */
     public int getCounter(){
         return this.arenas.getInt("arenasCounter");
     }
     public boolean getState(int num){
-        if(this.arenas.get("World." + "Arena" + num + "." + "isOccupied") != null){
-            return (boolean) this.arenas.get("World." + "Arena" + num + "." + "isOccupied");
+        if(this.arenas.get("World." + "Arena" + num + "." + "isEnabled") != null){
+            return (boolean) this.arenas.get("World." + "Arena" + num + "." + "isEnabled");
         }
         return true;
     }

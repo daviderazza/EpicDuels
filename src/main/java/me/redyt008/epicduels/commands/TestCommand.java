@@ -2,7 +2,6 @@ package me.redyt008.epicduels.commands;
 
 
 import me.redyt008.epicduels.EpicDuels;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,8 +16,7 @@ public class TestCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if(commandSender instanceof Player){
           Player player = (Player) commandSender;
-            Location arena = new Location(player.getWorld(), plugin.getConfig().getInt("arena.X"), plugin.getConfig().getInt("arena.Y"),plugin.getConfig().getInt("arena.Z"));
-            player.teleport(arena);
+            player.sendMessage(String.valueOf(EpicDuels.getArenas().getCounter()));
         }
         return true;
     }
