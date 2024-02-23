@@ -43,41 +43,6 @@ public class Arenas {
         this.arenas.set("World." + "Arena" + num + "." + "Y", Y);
         this.arenas.set("World." + "Arena" + num + "." + "Z", Z);
         this.arenas.set("World." + "Arena" + num + "." + "isEnabled", true);
-
-        /*
-        int counter = this.getList() + 1;
-        arenas.set("arenasCounter", counter);
-         */
-
-        if(arenas.getList("arenasList") == null){
-            if(!arenasList.contains("Arena" + num)){
-                /*
-                this.arenas.set("arenasList", arenasList);
-                arenasList.add("Arena" + num);
-                this.arenas.set("arenasList", arenasList);
-
-                this.arenas.set("arenasList", arenasList);
-                for(int i = 1; i <= counter; i++){
-                    arenasList.clear();
-                    arenasList.add("Arena" + i);
-                    this.arenas.set("arenasList", arenasList);
-                }
-                */
-            }
-        }else{
-            if(!arenasList.contains("Arena" + num)){
-                /*
-                arenasList.add("Arena" + num);
-                this.arenas.set("arenasList", arenasList);
-
-                for(int i = 1; i <= counter; i++){
-                    arenasList.clear();
-                    arenasList.add("Arena" + i);
-                    this.arenas.set("arenasList", arenasList);
-                }
-                */
-            }
-        }
     }
     public int getArenaX(int num){
         if(this.arenas.get("World." + "Arena" + num + "." + "X") != null){
@@ -101,11 +66,6 @@ public class Arenas {
         this.arenas.save(file);
         this.arenas.load(file);
     }
-    /*
-    public int getList(){
-        return arenasList.size();
-    }
-    */
     public int getCounter(){
         return this.arenas.getInt("arenasCounter");
     }

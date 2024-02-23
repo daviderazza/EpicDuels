@@ -124,6 +124,7 @@ public class duelVictoryEvent implements Listener {
                 }
 
                 EpicDuels.getData().reloadData();
+                EpicDuels.getArenas().reloadArenas();
                 Bukkit.getServer().getPluginManager().callEvent(new rankEvent(player));
                 Bukkit.getServer().getPluginManager().callEvent(new rankEvent(killer));
                 killer.sendTitle(ChatColor.GREEN + "Hai vinto il duello", ChatColor.GOLD + "Complimenti!");
@@ -230,6 +231,7 @@ public class duelVictoryEvent implements Listener {
                 }
 
                 EpicDuels.getData().reloadData();
+                EpicDuels.getArenas().reloadArenas();
                 Bukkit.getServer().getPluginManager().callEvent(new rankEvent(player));
                 Bukkit.getServer().getPluginManager().callEvent(new rankEvent(enemy));
                 enemy.sendTitle(ChatColor.GREEN + "Hai vinto il duello", ChatColor.GOLD + "Complimenti!");
