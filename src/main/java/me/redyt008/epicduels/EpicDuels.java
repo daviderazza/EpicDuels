@@ -24,7 +24,7 @@ public final class EpicDuels extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
-        System.out.println("EpicDuels Online! Made by Davide Razza");
+        this.getLogger().info("EpicDuels Online! Made by Davide Razza");
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
         data = new Data();
@@ -58,7 +58,7 @@ public final class EpicDuels extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        System.out.println("EpicDuels Offline! Made by Davide Razza");
+        this.getLogger().info("EpicDuels Offline! Made by Davide Razza");
     }
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
