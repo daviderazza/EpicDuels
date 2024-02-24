@@ -31,9 +31,7 @@ public class preArenaListener implements Listener {
                 if(counter != 0){
                     if(a <= counter){
                         if(EpicDuels.getArenas().getState(a)){
-                            player.sendMessage(ChatColor.GREEN + "L'arena numero " + a + " è libera. Procedo a tipparti a quell'arena");
                             player.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
-                            player1.sendMessage(ChatColor.GREEN + "L'arena numero " + a + " è libera. Procedo a tipparti a quell'arena");
                             player1.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
                             Location location = new Location(player.getWorld(), EpicDuels.getArenas().getArenaX(a), EpicDuels.getArenas().getArenaY(a), EpicDuels.getArenas().getArenaZ(a));
                             player.teleport(location);
@@ -58,13 +56,6 @@ public class preArenaListener implements Listener {
                                 throw new RuntimeException(e);
                             }
                             cancel();
-                        }else{
-                            if(!EpicDuels.getData().getData(player)){
-                                player.sendMessage(ChatColor.RED + "L'arena numero " + a + " è occupata");
-                                player.sendMessage(ChatColor.GOLD + "Procedo ad analizzare la prossima arena");
-                                player1.sendMessage(ChatColor.RED + "L'arena numero " + a + " è occupata");
-                                player1.sendMessage(ChatColor.GOLD + "Procedo ad analizzare la prossima arena");
-                            }
                         }
                         a++;
                     }else {
