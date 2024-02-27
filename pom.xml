@@ -6,7 +6,7 @@
 
   <groupId>me.redyt008</groupId>
   <artifactId>EpicDuels</artifactId>
-  <version>2.5.5</version>
+  <version>2.6.0</version>
   <packaging>jar</packaging>
 
   <name>EpicDuels</name>

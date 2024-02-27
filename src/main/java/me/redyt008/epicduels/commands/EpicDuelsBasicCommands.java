@@ -20,13 +20,7 @@ public class EpicDuelsBasicCommands implements CommandExecutor {
                 plugin.getLogger().info(ChatColor.RED + "Utilizzo: epicduels <debug/info/wiki>");
             }
             if(args.length == 1){
-                if(!args[0].equalsIgnoreCase("debug")){
-                    plugin.getLogger().info(ChatColor.RED + "Utilizzo: epicduels <debug/info/wiki>");
-                }
-                if(!args[0].equalsIgnoreCase("info")){
-                    plugin.getLogger().info(ChatColor.RED + "Utilizzo: epicduels <debug/info/wiki>");
-                }
-                if(!args[0].equalsIgnoreCase("wiki")){
+                if(!args[0].equalsIgnoreCase("debug") && !args[0].equalsIgnoreCase("info") && !args[0].equalsIgnoreCase("wiki")){
                     plugin.getLogger().info(ChatColor.RED + "Utilizzo: epicduels <debug/info/wiki>");
                 }
                 if(args[0].equalsIgnoreCase("debug")){
@@ -35,7 +29,7 @@ public class EpicDuelsBasicCommands implements CommandExecutor {
                             plugin.getLogger().info(ChatColor.GREEN + "Il plugin è abilitato e funziona corretamente");
                             plugin.getLogger().info(ChatColor.GREEN + "I dati dei player sono stati caricati corretamente");
                             plugin.getLogger().info(ChatColor.GREEN + "I dati delle arene sono stati caricati corretamente");
-                            plugin.getLogger().info(ChatColor.GREEN + "Versione:" + plugin.getDescription().getVersion());
+                            plugin.getLogger().info(ChatColor.GREEN + "Versione: " + plugin.getDescription().getVersion());
                         }else{
                             plugin.getLogger().info(ChatColor.RED + "Errore nel caricamento dei dati. Per favore prova a riavviare il server");
                         }

@@ -3,6 +3,7 @@ package me.redyt008.epicduels;
 import me.redyt008.epicduels.commands.*;
 import me.redyt008.epicduels.events.duelVictoryEvent;
 import me.redyt008.epicduels.events.playerJoinEvent;
+import me.redyt008.epicduels.events.playerLeaveEvent;
 import me.redyt008.epicduels.events.rankInventoryClickEvent;
 import me.redyt008.epicduels.listeners.preArenaListener;
 import me.redyt008.epicduels.listeners.rankManager;
@@ -48,6 +49,7 @@ public final class EpicDuels extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new rankManager(), this);
         getServer().getPluginManager().registerEvents(new rankInventoryClickEvent(), this);
         getServer().getPluginManager().registerEvents(new preArenaListener(), this);
+        getServer().getPluginManager().registerEvents(new playerLeaveEvent(), this);
     }
     public static Data getData() {
         return data;
