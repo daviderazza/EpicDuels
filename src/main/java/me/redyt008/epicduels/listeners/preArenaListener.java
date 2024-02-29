@@ -36,9 +36,10 @@ public class preArenaListener implements Listener {
                             player.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
                             player1.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
                             World world = Bukkit.getWorld(EpicDuels.getArenas().getArenaWorld(a));
-                            Location location = new Location(world, EpicDuels.getArenas().getArenaX(a), EpicDuels.getArenas().getArenaY(a), EpicDuels.getArenas().getArenaZ(a));
+                            Location location = new Location(world, EpicDuels.getArenas().getArenaX(a, 1), EpicDuels.getArenas().getArenaY(a, 1), EpicDuels.getArenas().getArenaZ(a, 1));
+                            Location location1 = new Location(world, EpicDuels.getArenas().getArenaX(a, 2), EpicDuels.getArenas().getArenaY(a, 2), EpicDuels.getArenas().getArenaZ(a, 2));
                             player.teleport(location);
-                            player1.teleport(location);
+                            player1.teleport(location1);
                             EpicDuels.getData().setData(player, true);
                             EpicDuels.getData().setArena(player, a);
                             EpicDuels.getData().setData(player1, true);
