@@ -131,7 +131,7 @@ public class duelVictoryEvent implements Listener {
                 if(killer.getBedSpawnLocation() != null){
                     killer.teleport(killer.getBedSpawnLocation());
                 }else {
-                    killer.teleport(killer.getWorld().getSpawnLocation());
+                    killer.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
                 }
             }
         }else {
@@ -238,7 +238,7 @@ public class duelVictoryEvent implements Listener {
                 if(enemy.getBedSpawnLocation() != null){
                     enemy.teleport(enemy.getBedSpawnLocation());
                 }else {
-                    enemy.teleport(enemy.getWorld().getSpawnLocation());
+                    enemy.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
                 }
             }
         }

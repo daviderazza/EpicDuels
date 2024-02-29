@@ -1,8 +1,10 @@
 package me.redyt008.epicduels;
 
+import org.bukkit.World;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +31,7 @@ public class Arenas {
     }
     final List<String> arenasList = new ArrayList<>();
     int counter;
-    public void setArena(int num, int X, int Y, int Z){
+    public void setArena(int num, int X, int Y, int Z, String world){
 
         if(this.arenas.get("World." + "Arena" + num + "." + "X") == null){
             this.counter = this.getCounter();
@@ -42,6 +44,7 @@ public class Arenas {
         this.arenas.set("World." + "Arena" + num + "." + "Y", Y);
         this.arenas.set("World." + "Arena" + num + "." + "Z", Z);
         this.arenas.set("World." + "Arena" + num + "." + "isEnabled", true);
+        this.arenas.set("World." + "Arena" + num + "." + "World", world);
     }
     public int getArenaX(int num){
         if(this.arenas.get("World." + "Arena" + num + "." + "X") != null){
@@ -60,6 +63,12 @@ public class Arenas {
             return (int) this.arenas.get("World." + "Arena" + num + "." + "Z");
         }
         return 0;
+    }
+    public String getArenaWorld(int num){
+        if(this.arenas.get("World." + "Arena" + num + "." + "X") != null){
+            return (String) this.arenas.get("World." + "Arena" + num + "." + "World");
+        }
+        return null;
     }
     public void reloadArenas() throws IOException, InvalidConfigurationException {
         this.arenas.save(file);

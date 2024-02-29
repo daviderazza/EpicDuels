@@ -2,8 +2,10 @@ package me.redyt008.epicduels.listeners;
 
 import me.redyt008.epicduels.EpicDuels;
 import me.redyt008.epicduels.events.preArenaEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -33,7 +35,8 @@ public class preArenaListener implements Listener {
                         if(EpicDuels.getArenas().getState(a)){
                             player.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
                             player1.sendTitle(ChatColor.GREEN + "Il duello è iniziato", ChatColor.GOLD + "Combatti!");
-                            Location location = new Location(player.getWorld(), EpicDuels.getArenas().getArenaX(a), EpicDuels.getArenas().getArenaY(a), EpicDuels.getArenas().getArenaZ(a));
+                            World world = Bukkit.getWorld(EpicDuels.getArenas().getArenaWorld(a));
+                            Location location = new Location(world, EpicDuels.getArenas().getArenaX(a), EpicDuels.getArenas().getArenaY(a), EpicDuels.getArenas().getArenaZ(a));
                             player.teleport(location);
                             player1.teleport(location);
                             EpicDuels.getData().setData(player, true);
