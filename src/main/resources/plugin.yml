@@ -29,7 +29,7 @@ commands:
     description: Imposta l'arena dove verranno tippati i player in duello
     usage: /<command>
   arena:
-    description: Imposta le prearene dove verranno tippati i player prima di entrare nell'arena
+    description: Imposta l'arena dove verranno tippati i player in duello
     usage: /<command>
   stands:
     description: Imposta gli stand dove verranno tippati i player per spectare il duello

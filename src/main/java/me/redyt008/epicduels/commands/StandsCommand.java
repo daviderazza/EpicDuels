@@ -19,13 +19,18 @@ public class StandsCommand implements CommandExecutor {
         if(commandSender instanceof Player){
             Player player = (Player) commandSender;
             if(player.hasPermission("epicduels.stand")){
-                Location location = player.getLocation();
+
+                player.sendMessage(ChatColor.RED + "Comando attualmente disabilitato");
+                player.sendMessage(ChatColor.RED + "Verrà riattivato nella prossima versione");
+                /*
+                Location location1 = player.getLocation();
                 String string = location.getBlockX() + " " + location.getBlockY() + " " + location.getBlockZ();
                 player.sendMessage(ChatColor.GREEN + "Hai impostato gli stand a " + string + " con successo!");
                 plugin.getConfig().set("stands.X", location.getBlockX());
                 plugin.getConfig().set("stands.Y", location.getBlockY());
                 plugin.getConfig().set("stands.Z", location.getBlockZ());
                 plugin.saveConfig();
+                 */
             }
         }
         return true;

@@ -37,7 +37,7 @@ public class ArenaCommand implements CommandExecutor {
                                 } catch (InvalidConfigurationException e) {
                                     throw new RuntimeException(e);
                                 }
-                                player.sendMessage(ChatColor.GREEN + "Hai impostato con successo l'arena numero " + args[0] + " a " + string);
+                                player.sendMessage(ChatColor.GREEN + "Hai impostato con successo la posizione di spawn " + args[1] + " dell'arena numero " + args[0] + " a " + string);
                                 player.sendMessage(ChatColor.GREEN + "Al momento sono presenti " + EpicDuels.getArenas().getCounter() + " arene");
                             }else{
                                 player.sendMessage(ChatColor.RED + "Non ho trovato un mondo con quel nome!");
